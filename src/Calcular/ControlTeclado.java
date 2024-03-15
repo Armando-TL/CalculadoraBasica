@@ -25,16 +25,14 @@ public class ControlTeclado implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        char c = e.getKeyChar();
-                if (Character.isDigit(c)) {
-                    texto.setText(texto.getText() + c);
-                }
-                
+        
+           // Solo con tocar funciona sin teclas como Alt o Ctrl   
                 
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+       // solo con tocar funciona 
        if (e.getKeyChar() == '\b') {
                     System.out.println("Tecla Borrar presionada");
                     texto.setText("");
@@ -44,7 +42,11 @@ public class ControlTeclado implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // 
+        // Tocar y soltar para que funcione 
+        char c = e.getKeyChar();
+                if (Character.isDigit(c)) {
+                    texto.setText(texto.getText() + c);
+                }
     }
 
    
