@@ -585,6 +585,7 @@ public class Calcular extends javax.swing.JFrame {
 
     public void addNumber(String dato) {
         txt1.setText(txt1.getText() + dato);
+        contenedor.requestFocusInWindow();
     }
     
    
