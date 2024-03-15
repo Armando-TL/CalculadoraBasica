@@ -1,11 +1,8 @@
 package Calcular;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-import javax.swing.JTextField;
+
 
 // @author amdtr
 public class Calcular extends javax.swing.JFrame {
@@ -15,8 +12,7 @@ public class Calcular extends javax.swing.JFrame {
 
     public Calcular() {
         initComponents();
-        ControlTeclado llamado = new ControlTeclado(contenedor);
-       llamado.field(txt1);
+        ControlTeclado controlTeclado = new ControlTeclado( contenedor,txt1);
     }
 
     @SuppressWarnings("unchecked")
@@ -469,17 +465,19 @@ public class Calcular extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
-        txt1.setText("");
-        resultado.setText("");
+         String t = txt1.getText();
+            if (!t.equals("")) {
+                txt1.setText(txt1.getText().substring(0, t.length() - 1));
+            }
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
 
-        try {
-            String igual = se.eval(txt1.getText()).toString();
-            resultado.setText(igual);
-        } catch (Exception e) {
-
+        if (!txt1.getText().equals("")) {
+            txt1.setText("");
+        }
+        if (!resultado.getText().equals("")) {
+            resultado.setText("");
         }
 
     }//GEN-LAST:event_btnCeActionPerformed
