@@ -9,9 +9,7 @@ import javax.swing.JPanel;
 
 public class ControlTeclado implements KeyListener {
 
-    private int position;
-    private char currentChar;
-    private String input = "";
+    private String input;
 
     ///////////////////////////////////
     private final JPanel controller;
@@ -90,6 +88,7 @@ public class ControlTeclado implements KeyListener {
         double result = parser.parse(); 
         String formateado = formateo.format(result);
         resultado.setText(String.valueOf(formateado));
+
     }
 
     public void operador(char op) {
