@@ -1,18 +1,13 @@
 package Calcular;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
-
 // @author amdtr
 public class Calcular extends javax.swing.JFrame {
 
-    ScriptEngineManager sem = new ScriptEngineManager();
-    ScriptEngine se = sem.getEngineByName("JavaScript");
+    private final ControlTeclado controlTeclado;
 
     public Calcular() {
         initComponents();
-        ControlTeclado controlTeclado = new ControlTeclado( contenedor,txt1);
+        controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
     }
 
     @SuppressWarnings("unchecked")
@@ -48,17 +43,6 @@ public class Calcular extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                formKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                formKeyTyped(evt);
-            }
-        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -372,17 +356,6 @@ public class Calcular extends javax.swing.JFrame {
                 oneActionPerformed(evt);
             }
         });
-        one.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                oneKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                oneKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                oneKeyTyped(evt);
-            }
-        });
         jPanel2.add(one, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 45, 45));
 
         two.setBackground(new java.awt.Color(12, 47, 71));
@@ -465,14 +438,15 @@ public class Calcular extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
-         String t = txt1.getText();
-            if (!t.equals("")) {
-                txt1.setText(txt1.getText().substring(0, t.length() - 1));
-            }
+        contenedor.requestFocusInWindow();
+        String t = txt1.getText();
+        if (!t.equals("")) {
+            txt1.setText(txt1.getText().substring(0, t.length() - 1));
+        }
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
-
+        contenedor.requestFocusInWindow();
         if (!txt1.getText().equals("")) {
             txt1.setText("");
         }
@@ -487,33 +461,26 @@ public class Calcular extends javax.swing.JFrame {
     }//GEN-LAST:event_cerosActionPerformed
 
     private void divActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divActionPerformed
-        addNumber("/");
+        controlTeclado.operador('/');
     }//GEN-LAST:event_divActionPerformed
 
     private void multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiActionPerformed
-        addNumber("x");
+        controlTeclado.operador('*');
     }//GEN-LAST:event_multiActionPerformed
 
     private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
-        addNumber("+");
+        controlTeclado.operador('+');
     }//GEN-LAST:event_sumaActionPerformed
 
     private void restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaActionPerformed
-        addNumber("-");
+        controlTeclado.operador('-');
     }//GEN-LAST:event_restaActionPerformed
 
     private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
-        try {
-            String res = se.eval(txt1.getText()).toString();
-            resultado.setText(res);
-        } catch (Exception e) {
-            //btn_c.doClick();
-        }
-    }//GEN-LAST:event_igualActionPerformed
+        contenedor.requestFocusInWindow();
+        controlTeclado.resultadoT();
 
-    private void porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porcentajeActionPerformed
-        addNumber("%");
-    }//GEN-LAST:event_porcentajeActionPerformed
+    }//GEN-LAST:event_igualActionPerformed
 
     private void sevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenActionPerformed
         addNumber("7");
@@ -552,43 +519,30 @@ public class Calcular extends javax.swing.JFrame {
     }//GEN-LAST:event_threeActionPerformed
 
     private void puntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoActionPerformed
-        addNumber(".");
+        controlTeclado.operador('.');
     }//GEN-LAST:event_puntoActionPerformed
 
     private void ceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceroActionPerformed
         addNumber("0");
     }//GEN-LAST:event_ceroActionPerformed
 
-    private void oneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_oneKeyPressed
-        
-    }//GEN-LAST:event_oneKeyPressed
-
-    private void oneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_oneKeyReleased
-        txt1.setText("1");
-    }//GEN-LAST:event_oneKeyReleased
-
-    private void oneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_oneKeyTyped
-        txt1.setText("1");
-    }//GEN-LAST:event_oneKeyTyped
-
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        txt1.setText("1");
-    }//GEN-LAST:event_formKeyPressed
-
-    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        txt1.setText("1");
-    }//GEN-LAST:event_formKeyReleased
-
-    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
-        txt1.setText("1");
-    }//GEN-LAST:event_formKeyTyped
+    private void porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porcentajeActionPerformed
+        addNumber("%");
+    }//GEN-LAST:event_porcentajeActionPerformed
 
     public void addNumber(String dato) {
         txt1.setText(txt1.getText() + dato);
         contenedor.requestFocusInWindow();
     }
-    
-   
+
+    public void respuesta() {
+
+        ControlTeclado controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
+        controlTeclado.getInput(txt1.getText());
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnC;
     private javax.swing.JButton btnCe;
