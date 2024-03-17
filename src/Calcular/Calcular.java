@@ -27,7 +27,6 @@ public class Calcular extends javax.swing.JFrame {
         suma = new javax.swing.JButton();
         resta = new javax.swing.JButton();
         igual = new javax.swing.JButton();
-        porcentaje = new javax.swing.JButton();
         seven = new javax.swing.JButton();
         eigth = new javax.swing.JButton();
         nine = new javax.swing.JButton();
@@ -104,7 +103,7 @@ public class Calcular extends javax.swing.JFrame {
                 btnCeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 45, 45));
+        jPanel2.add(btnCe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 130, 45));
 
         ceros.setBackground(new java.awt.Color(12, 47, 71));
         ceros.setFont(new java.awt.Font("Myanmar Text", 0, 18)); // NOI18N
@@ -213,24 +212,6 @@ public class Calcular extends javax.swing.JFrame {
             }
         });
         jPanel2.add(igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 45, 45));
-
-        porcentaje.setBackground(new java.awt.Color(12, 47, 71));
-        porcentaje.setFont(new java.awt.Font("Myanmar Text", 0, 18)); // NOI18N
-        porcentaje.setForeground(new java.awt.Color(39, 134, 134));
-        porcentaje.setText("%");
-        porcentaje.setAlignmentY(0.0F);
-        porcentaje.setBorder(null);
-        porcentaje.setBorderPainted(false);
-        porcentaje.setContentAreaFilled(false);
-        porcentaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        porcentaje.setFocusPainted(false);
-        porcentaje.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        porcentaje.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                porcentajeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 45, 45));
 
         seven.setBackground(new java.awt.Color(12, 47, 71));
         seven.setFont(new java.awt.Font("Myanmar Text", 0, 18)); // NOI18N
@@ -526,20 +507,9 @@ public class Calcular extends javax.swing.JFrame {
         addNumber("0");
     }//GEN-LAST:event_ceroActionPerformed
 
-    private void porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porcentajeActionPerformed
-        addNumber("%");
-    }//GEN-LAST:event_porcentajeActionPerformed
-
     public void addNumber(String dato) {
         txt1.setText(txt1.getText() + dato);
         contenedor.requestFocusInWindow();
-    }
-
-    public void respuesta() {
-
-        ControlTeclado controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
-        controlTeclado.getInput(txt1.getText());
-
     }
 
 
@@ -559,7 +529,6 @@ public class Calcular extends javax.swing.JFrame {
     private javax.swing.JButton multi;
     private javax.swing.JButton nine;
     private javax.swing.JButton one;
-    private javax.swing.JButton porcentaje;
     private javax.swing.JButton punto;
     private javax.swing.JButton resta;
     private javax.swing.JLabel resultado;
