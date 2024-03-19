@@ -24,7 +24,6 @@ public class ControlTeclado implements KeyListener {
         this.controller.setFocusable(true);
         this.texto = texto;
         this.resultado = resultado;
-
     }
 
     public void getInput(String input) {
@@ -41,6 +40,7 @@ public class ControlTeclado implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             resultadoT(); //resolver operacion
         }
+        
         if (e.getKeyCode() == KeyEvent.VK_DELETE) {
             texto.setText("");
             resultado.setText("");
@@ -85,7 +85,7 @@ public class ControlTeclado implements KeyListener {
         getInput(texto.getText());
         DecimalFormat formateo = new DecimalFormat("#.#####");
         Parseo parser = new Parseo(input);
-        double result = parser.parse(); 
+        double result = parser.parse();
         String formateado = formateo.format(result);
         resultado.setText(String.valueOf(formateado));
 
