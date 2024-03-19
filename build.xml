@@ -72,7 +72,7 @@
     -->
     
     <target name="-post-jar">
-    <property name="store.jar.name" value="FigurasGeometricas"/>
+    <property name="store.jar.name" value="CalculadoraScript"/>
  
     <property name="store.dir" value="Ejecutable"/>
     <property name="store.jar" value="${store.dir}/${store.jar.name}.jar"/>
