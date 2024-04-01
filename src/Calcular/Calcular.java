@@ -1,13 +1,24 @@
 package Calcular;
 
 // @author amdtr
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 public class Calcular extends javax.swing.JFrame {
 
     private final ControlTeclado controlTeclado;
 
     public Calcular() {
         initComponents();
+        setIconImage(getIconImage());
         controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
+    }
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/icono.png"));
+        return retValue;
     }
 
     @SuppressWarnings("unchecked")
