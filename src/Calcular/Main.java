@@ -10,7 +10,7 @@ public class Main {
         ventana.setLocationRelativeTo(null);
         ventana.setResizable(false);
         ventana.setVisible(true);
-        ventana.setTitle("Calculadora AMD");
+        ventana.setTitle("Calculadora");
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
