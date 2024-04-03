@@ -12,6 +12,6 @@ public class Main {
         ventana.setVisible(true);
         ventana.setTitle("Calculadora");
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
+    } // Terminado
 
 }
