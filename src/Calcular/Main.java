@@ -12,7 +12,6 @@ public class Main {
         ventana.setVisible(true);
         ventana.setTitle("Calculadora");
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        // calcular tiene la vista y los metodos de mouse click y controlTeclado los de teclado
-    }
+    } //Terminado
 
 }
