@@ -5,12 +5,13 @@ package Calcular;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-public class Calcular extends javax.swing.JFrame {
+public final class ViewCalculadora extends javax.swing.JFrame {
 
     private final ControlTeclado controlTeclado;
 
-    public Calcular() {
+    public ViewCalculadora() {
         initComponents();
+        //this.setUndecorated(false);
         setIconImage(getIconImage());
         controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
     }

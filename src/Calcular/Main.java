@@ -6,7 +6,7 @@ import javax.swing.WindowConstants;
 public class Main {
 
     public static void main(String[] args) {
-        Calcular ventana = new Calcular();
+        ViewCalculadora ventana = new ViewCalculadora();
         ventana.setLocationRelativeTo(null);
         ventana.setResizable(false);
         ventana.setVisible(true);
