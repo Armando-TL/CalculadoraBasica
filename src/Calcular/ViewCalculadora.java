@@ -11,7 +11,6 @@ public final class ViewCalculadora extends javax.swing.JFrame {
 
     public ViewCalculadora() {
         initComponents();
-        //this.setUndecorated(false);
         setIconImage(getIconImage());
         controlTeclado = new ControlTeclado(contenedor, txt1, resultado);
     }
